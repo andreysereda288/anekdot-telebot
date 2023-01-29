@@ -5,7 +5,7 @@ from telebot import types, util
 
 from parse_anekdot import parse_anekdots, ANEKDOT_TYPE, STORY_TYPE
 
-token = os.environ.get('API_TELEBOT', '')
+token = os.environ.get('API_TELEBOT', '6160847589:AAExX7Y0o7FbkJn5BJQtYdeA7gAy5oWKZ44')
 
 bot = telebot.TeleBot(token)
 
@@ -28,7 +28,7 @@ def callback_query(call):
         raise RuntimeError()
     else:
         bot.answer_callback_query(call.id, "Loading...")
-        content = parse_anekdots(f'/{call.data}')
+        content = parse_anekdots(call.data)
         splitted_text = util.smart_split(content, chars_per_string=3000)
         for text in splitted_text:
             bot.send_message(call.from_user.id, text)

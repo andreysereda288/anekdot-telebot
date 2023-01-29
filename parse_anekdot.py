@@ -8,7 +8,7 @@ ANEKDOT_TYPE = 'anekdots'
 STORY_TYPE = 'stories'
 
 
-def parse_anekdots(content_type='/anekdots'):
+def parse_anekdots(content_type=ANEKDOT_TYPE):
     if content_type == ANEKDOT_TYPE:
         url = URL_ANEK
     elif content_type == STORY_TYPE:
