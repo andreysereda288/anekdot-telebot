@@ -13,6 +13,7 @@ markup = types.InlineKeyboardMarkup()
 markup.row_width = 2
 markup.add(types.InlineKeyboardButton("Анекдоты", callback_data="anekdots"),
            types.InlineKeyboardButton("Истории", callback_data="stories"),
+           types.InlineKeyboardButton("Raise error", callback_data="error"),
            )
 
 
@@ -32,6 +33,8 @@ def callback_query(call):
         bot.send_message(call.from_user.id, "Choose type:", reply_markup=markup)
     elif call.data == "stories":
         bot.answer_callback_query(call.id, "Not support so far")
+    if call.data == 'error':
+        raise RuntimeError()
 
 
 @bot.message_handler(commands=['test'])
