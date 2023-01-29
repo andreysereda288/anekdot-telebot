@@ -5,7 +5,7 @@ from telebot import types, util
 
 from parse_anekdot import parse_anekdots, ANEKDOT_TYPE, STORY_TYPE
 
-token = os.environ.get('API_TELEBOT', '6160847589:AAExX7Y0o7FbkJn5BJQtYdeA7gAy5oWKZ44')
+token = os.environ.get('API_TELEBOT', '')
 
 bot = telebot.TeleBot(token)
 
